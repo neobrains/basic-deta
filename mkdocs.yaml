@@ -1,0 +1,107 @@
+site_name: Basic Deta
+site_url: https://basic.deta.dev
+site_description: Deta Docs For Noobs
+repo_url: https://github.com/AyushSehrawat/basic-deta
+edit_uri: "tree/main/docs/"
+repo_name: Basic Deta
+copyright: Copyright &copy; 2022 Basic Deta
+
+theme:
+  name: material
+  custom_dir: overrides
+  favicon: images/deta_logo.svg
+  logo: images/deta_logo.svg
+  palette:
+    scheme: deta
+  features:
+    - announce.dismiss
+    - header.autohide
+    - navigation.instant
+    - navigation.tracking
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - search.share
+    - toc.follow
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - meta
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      linenums: false
+      anchor_linenums: true
+      auto_title: true
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink:
+      repo_url_shortener: true
+      repo_url_shorthand: true
+      user: Duplexes
+      repo: pyco
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - tags
+  - git-revision-date-localized:
+      enable_creation_date: true
+
+extra:
+  homepage: https://basic.deta.dev
+  generator: false
+
+  social:
+    - icon: simple/github
+      link: https://github.com/AyushSehrawat/basic-deta
+      name: Basic Deta Repository
+
+    - icon: simple/discord
+      link: https://discord.com/invite/K3gYNqHXUU
+      name: Deta Discord Server
+
+    - icon: material/web
+      link: https://www.deta.sh/
+      name: Deta Website
+
+  analytics:
+    provider: google
+    property: G-ZC7B3C07TH
+
+extra_javascript:
+  - javascripts/shortcuts.js
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Tutorials:
+      - tutorials/index.md
+      - Micros: tutorials/micros.md
+      - Base: tutorials/base.md
+      - Drive: tutorials/drive.md
+  - Help: help.md
+  - Featured: featured.md
+  - Frequently Asked Questions:
+      - faq/index.md
+      - Micros: faq/micros.md
+      - Base: faq/base.md
+      - Drive: faq/drive.md
+      - CLI: faq/cli.md
