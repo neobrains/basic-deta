@@ -1,0 +1,47 @@
+name: Build and deploy site to Deta
+on:
+  - push
+  - workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build featured.md
+        run: python3 feature.py
+
+      - name: Build site
+        run: mkdocs build --clean
+
+      - name: Install Deta CLI
+        shell: bash
+        run: curl -fsSL https://get.deta.dev/cli.sh | sh
+
+      # Get `.deta` metadata folder to use it in deployment
+      - name: Clone Deta Micro
+        shell: bash
+        run: |
+          export DETA_ACCESS_TOKEN=${{ secrets.DETA_TOKEN }}
+          ~/.deta/bin/deta clone --name basic-deta --project fastapi .temp
+          cp -r .temp/.deta .
+          rm -rf .temp
+
+      - name: Deploy to Deta Micro
+        shell: bash
+        run: |
+          export DETA_ACCESS_TOKEN=${{ secrets.DETA_TOKEN }}
+          cd .
+          ~/.deta/bin/deta deploy

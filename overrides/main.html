@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+    <meta name="google-site-verification" content="MRrVZO1lbXN8Rx6_2vZRzLVLUjZf--qM2W0_CxEaSbQ" />
+{% endblock %}
+
+<!-- Announcement bar -->
+{% block announce %}
+<style>
+  /* Add background color transition */
+  .md-announce {
+    transition: background-color 125ms;
+  }
+
+  /* Change background color on link focus */
+  .md-announce:focus-within {
+    background-color: var(--md-accent-fg-color);
+  }
+
+  /* Preserve link color */
+  .md-announce a,
+  .md-announce a:focus,
+  .md-announce a:hover {
+    color: currentColor;
+  }
+
+  /* Don't wrap name of blog article */
+  .md-announce strong {
+    white-space: nowrap;
+  }
+</style>
+
+<strong>Deta Space is now in alpha.</strong> 🚀
+Learn more and get access <a href="https://alpha.deta.space">here</a>.
+There may be major changes to this site in the future.
+{% endblock %}
