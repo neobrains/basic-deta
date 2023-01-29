@@ -1,7 +1,7 @@
 site_name: Basic Deta
 site_url: https://basic.deta.dev
 site_description: Deta Docs For Noobs
-repo_url: https://github.com/AyushSehrawat/basic-deta
+repo_url: https://github.com/neobrains/basic-deta
 edit_uri: "tree/main/docs/"
 repo_name: Basic Deta
 copyright: Copyright &copy; 2022 Basic Deta
@@ -12,7 +12,16 @@ theme:
   favicon: images/deta_logo.svg
   logo: images/deta_logo.svg
   palette:
-    scheme: deta
+    - media: &quot;(prefers-color-scheme: light)&quot;
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: &quot;(prefers-color-scheme: dark)&quot;
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
     - announce.dismiss
     - header.autohide
@@ -86,9 +95,6 @@ extra:
 
 extra_javascript:
   - javascripts/shortcuts.js
-
-extra_css:
-  - stylesheets/extra.css
 
 nav:
   - Home: index.md
